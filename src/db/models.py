@@ -3,11 +3,9 @@ from sqlalchemy import Column, Integer, Boolean, String, Double
 from src.db.orm import Base
 
 
-class UCarsTable(Base):
-    __tablename__ = "users"
+class CarsTable(Base):
+    __tablename__ = "cars"
 
-    id_number = Column("id", Integer, primary_key=True)
-    username = Column("username", String, nullable=True)
     price = Column('price', Double, nullable = True )
     currency  = Column('currency', String, nullable = True)
     brand  = Column('brand', String, nullable = True)
