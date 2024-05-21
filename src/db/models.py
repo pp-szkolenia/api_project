@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, Boolean, String, Double
 
-from src.db.orm import Base
+from db.orm import Base
 
 
 class CarsTable(Base):

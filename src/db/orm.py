@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-from src.db.utils import get_connection_string
+from db.utils import get_connection_string
 
 
 connection_string = get_connection_string()
