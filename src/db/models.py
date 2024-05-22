@@ -6,6 +6,7 @@ from db.orm import Base
 class CarsTable(Base):
     __tablename__ = "cars"
 
+    id_number = Column("index", Integer, primary_key=True)
     price = Column('price', Double, nullable = True )
     currency  = Column('currency', String, nullable = True)
     brand  = Column('brand', String, nullable = True)
