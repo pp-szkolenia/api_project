@@ -19,6 +19,7 @@ def get_cars_by_brand(brand: str,
                       price_max: int = Query(None, alias="priceMax"),
                       mileage_min: int = Query(alias="mileageMin"),
                       mileage_max: int = Query(alias="mileageMax"),
+                      sort_info : str = Query(alias="sort"),
                       session: Session = Depends(get_session)):
     query_cars = session.query(CarsTable).filter_by(brand=brand)
     if price_min is not None:
@@ -28,6 +29,11 @@ def get_cars_by_brand(brand: str,
 
     query_cars = query_cars.filter(CarsTable.mileage <= mileage_max,
                                    CarsTable.mileage >= mileage_min)
+    match sort_info:
+        case "price_asc":
+            query_cars = query_cars.order_by(CarsTable.price.asc())
+        case "price_desc":
+            query_cars = query_cars.order_by(CarsTable.price.desc())
 
     filtered_cars = query_cars.all()
 
